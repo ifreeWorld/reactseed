@@ -11,7 +11,7 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: "async",
+      chunks: 'async',
       minSize: 30000,
       minChunks: 1,
       maxAsyncRequests: 5,
@@ -19,12 +19,12 @@ module.exports = {
       automaticNameDelimiter: '~',
       name: true,
       cacheGroups: {
-        //node_modules内的依赖库
+        // node_modules内的依赖库
         vendor: {
-          chunks: "all",
+          chunks: 'all',
           test: /[\\/]node_modules[\\/]/,
-          name: "vendor",
-          minChunks: 1, //被不同entry引用次数(import),1次的话没必要提取
+          name: 'vendor',
+          minChunks: 1, // 被不同entry引用次数(import),1次的话没必要提取
           maxInitialRequests: 5,
           minSize: 0,
           priority: 100
@@ -67,14 +67,14 @@ module.exports = {
       // es6 react
       {
         test: /\.js$/,
-        enforce: "pre",
+        enforce: 'pre',
         exclude: /node_modules/,
-        loader: "eslint-loader"
+        loader: 'eslint-loader'
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: 'babel-loader'
       }
     ]
   },

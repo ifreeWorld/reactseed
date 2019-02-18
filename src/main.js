@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Home from './pages/home';
+import { BrowserRouter } from 'react-router-dom'
+import Home from './pages/home/index';
 
-ReactDom.render(<Home/>, document.getElementById('app'));
+ReactDom.render(<BrowserRouter basename="/"><Home/></BrowserRouter>, document.getElementById('app'));

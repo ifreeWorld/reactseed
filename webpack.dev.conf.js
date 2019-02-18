@@ -8,7 +8,7 @@ module.exports = merge(base, {
   devtool: 'source-map',
   // 模块热替换
   devServer: {
-    contentBase: './dist',
+    contentBase: '/',
     host: 'localhost',
     port: 9000,
     hot: true

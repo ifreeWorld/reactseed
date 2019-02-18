@@ -34,6 +34,8 @@ module.exports = {
     // 对var警告
     'no-var': 2,
     // standard规范中函数定义时括号前面要有空格（禁用此规则）
-    'space-before-function-paren': [0, 'always']
+    'space-before-function-paren': [0, 'always'],
+    // react proptype不检查
+    'react/prop-types': 0
   }
 }
