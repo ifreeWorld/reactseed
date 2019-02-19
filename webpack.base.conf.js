@@ -1,5 +1,5 @@
-const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -7,7 +7,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].[hash].js',
+    publicPath: '/'
   },
   optimization: {
     splitChunks: {
@@ -34,35 +35,31 @@ module.exports = {
   },
   module: {
     rules: [
-      // css loader
-      {
-        test: /\.css$/,
-        // exclude: /node_modules/,
-        // include: path.join(__dirname, '/node_modules/antd'),
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
       // 图片loader
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader'
-        ]
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: '[path]/dist/img/[name].[hash:7].[ext]'
+        }
       },
       // 字体loader，my-font.woff，此处没有引入字体
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          'file-loader'
-        ]
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: '[path]/dist/fonts/[name].[hash:7].[ext]'
+        }
       },
       {
-        test: /\.mp3$/,
-        use: [
-          'url-loader'
-        ]
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: '[path]/dist/media/[name].[hash:7].[ext]'
+        }
       },
       // es6 react
       {
@@ -79,10 +76,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       title: 'react seed',
       filename: 'index.html',
       template: 'public/index.html'
     })
   ]
-};
+}

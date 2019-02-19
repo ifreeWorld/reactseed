@@ -4,8 +4,9 @@
   "description": "react种子工程",
   "main": "src/main.js",
   "scripts": {
-    "dev": "webpack-dev-server --history-api-fallback --color --open --inline --progress --config webpack.dev.conf.js",
+    "dev": "webpack-dev-server --color --open --inline --progress --config webpack.dev.conf.js",
     "build": "webpack --config webpack.prod.conf.js",
+    "lint": "eslint --ext .js,.jsx ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,6 +15,7 @@
     "react-route",
     "webpack",
     "postcss-module",
+    "autoprefixer",
     "eslint"
   ],
   "author": "wangzilong",
@@ -31,12 +33,12 @@
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "autoprefixer": "^9.4.7",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^8.0.5",
     "babel-plugin-import": "^1.11.0",
+    "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.0",
-    "style-loader": "^0.23.1",
-    "standard": "^12.0.1",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-loader": "^2.1.2",
@@ -46,6 +48,14 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "standard": "^12.0.1",
+    "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "url-loader": "^1.1.2",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"

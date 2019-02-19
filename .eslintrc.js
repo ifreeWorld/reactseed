@@ -19,6 +19,12 @@ module.exports = {
     sourceType: 'module',
     ecmaVersion: 7
   },
+  // 解决Warning: React version not specified in eslint-plugin-react settings. See https://github.com/yannickcr/eslint-plugin-react#configuration.
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   /* 
     "off" or 0 关闭规则
     "warn" or 1 打开规则，不符合出现警告提示
