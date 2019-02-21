@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -80,6 +81,13 @@ module.exports = {
       title: 'react seed',
       filename: 'index.html',
       template: 'public/index.html'
+    }),
+    new StyleLintPlugin({
+      context: 'src',
+      configFile: path.resolve(__dirname, './.stylelintrc.js'),
+      files: '**/*.css',
+      failOnError: false,
+      quiet: true
     })
   ]
 }

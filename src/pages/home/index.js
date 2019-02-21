@@ -1,5 +1,12 @@
 import React from 'react'
-import { Route, Switch, NavLink, Link, Redirect, withRouter } from 'react-router-dom'
+import {
+  Route,
+  Switch,
+  NavLink,
+  Link,
+  Redirect,
+  withRouter
+} from 'react-router-dom'
 import { Layout, Menu, Icon } from 'antd'
 import Demo from '../demo'
 import ErrorPage from '../errorPage'
@@ -24,28 +31,30 @@ class Home extends React.Component {
 
   // 递归生成menu和SubMenu
   renderMenu(data) {
-    return data && data.length > 0 ? data.map(item => {
-      return item.children ? (
-        <SubMenu
-          key={item.link}
-          title={
-            <span>
-              <Icon type={item.icon} />
+    return data && data.length > 0
+      ? data.map(item =>
+        item.children ? (
+          <SubMenu
+            key={item.link}
+            title={
+              <span>
+                <Icon type={item.icon} />
+                <span>{item.name}</span>
+              </span>
+            }
+          >
+            {this.renderMenu(item.children)}
+          </SubMenu>
+        ) : (
+          <Menu.Item key={item.link}>
+            <NavLink to={item.link}>
+              {item.icon ? <Icon type={item.icon} /> : ''}
               <span>{item.name}</span>
-            </span>
-          }
-        >
-          {this.renderMenu(item.children)}
-        </SubMenu>
-      ) : (
-        <Menu.Item key={item.link}>
-          <NavLink to={item.link}>
-            {item.icon ? <Icon type={item.icon} /> : ''}
-            <span>{item.name}</span>
-          </NavLink>
-        </Menu.Item>
+            </NavLink>
+          </Menu.Item>
+        )
       )
-    }) : ''
+      : ''
   }
 
   render() {
@@ -63,18 +72,16 @@ class Home extends React.Component {
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider
-          collapsible
-          collapsed={this.state.collapsed}
-          trigger={null}
-        >
+        <Sider collapsible collapsed={this.state.collapsed} trigger={null}>
           <Link to="/">
             <div className={styles.logo}>
               <IconFont
                 type="icon-logo"
                 style={{ fontSize: '35px', verticalAlign: 'middle' }}
               />
-              <span className={styles.logoText} data-text="manager">Manager</span>
+              <span className={styles.logoText} data-text="manager">
+                Manager
+              </span>
             </div>
           </Link>
           <Menu
@@ -86,15 +93,15 @@ class Home extends React.Component {
                 ? this.props.history.location.pathname
                 : '/link1'
             ]}
-            defaultOpenKeys={[combineSnippets.length > 0 ? combineSnippets[0] : '']}
+            defaultOpenKeys={[
+              combineSnippets.length > 0 ? combineSnippets[0] : ''
+            ]}
           >
-            {
-              this.renderMenu(routes)
-            }
+            {this.renderMenu(routes)}
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} >
+          <Header style={{ background: '#fff', padding: 0 }}>
             <Icon
               className={styles.trigger}
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}

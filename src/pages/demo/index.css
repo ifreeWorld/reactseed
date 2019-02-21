@@ -1,0 +1,23 @@
+.demo {
+  padding: 24px;
+  background: #fff;
+  min-height: 600px;
+}
+
+.input {
+  width: 200px;
+}
+
+.button {
+  margin-left: 5px;
+}
+
+.list {
+  margin-top: 10px;
+  width: 248px;
+}
+
+.listItem {
+  width: 200px;
+  composes: ellipsis from global;
+}

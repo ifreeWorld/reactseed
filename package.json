@@ -7,16 +7,20 @@
     "dev": "webpack-dev-server --color --open --inline --progress --config webpack.dev.conf.js",
     "build": "webpack --config webpack.prod.conf.js",
     "lint": "eslint --ext .js,.jsx ./",
+    "stylelint": "stylelint src/**/*.css",
+    "stylelint:fix": "stylelint src/**/*.css --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react",
     "redux",
+    "redux-thunk",
     "react-route",
     "webpack",
     "postcss-module",
     "autoprefixer",
-    "eslint"
+    "eslint",
+    "stylelint"
   ],
   "author": "wangzilong",
   "license": "ISC",
@@ -27,6 +31,8 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.29.3"
   },
   "devDependencies": {
@@ -52,8 +58,13 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
+    "redux-devtools-extension": "^2.13.8",
     "standard": "^12.0.1",
     "style-loader": "^0.23.1",
+    "stylelint": "^9.10.1",
+    "stylelint-config-css-modules": "^1.3.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-webpack-plugin": "^0.10.5",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^1.1.2",
     "webpack-cli": "^3.2.3",
