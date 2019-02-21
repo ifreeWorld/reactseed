@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Input, Button, List } from 'antd'
-import DemoAction from '../../actions/demoAction'
 import DemoService from '../../services/demoService'
 import Service from '../../utils/service'
 import styles from './index.css'
@@ -15,16 +14,13 @@ class Demo extends React.Component {
       inputText: ''
     }
   }
-  componentDidMount() {
-    this.demoService.test()
-  }
   onChange(e) {
     this.setState({
       inputText: e.target.value
     })
   }
   addItem() {
-    this.props.dispatch(DemoAction.addItem(this.state.inputText))
+    this.props.dispatch(this.demoService.test(this.state.inputText))
   }
   render() {
     const url = this.props.match.url

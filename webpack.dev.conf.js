@@ -9,14 +9,28 @@ module.exports = merge(base, {
   // 模块热替换
   devServer: {
     contentBase: '/',
+    publicPath: '/',
     host: 'localhost',
     port: 9000,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:9002',
+        pathRewrite: { '^/api': '' },
+        changeOrigin: true
+      }
+    }
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify({
+        'NODE_ENV': 'development',
+        'BASE_URL': 'http://localhost:9000/api'
+      })
+    })
   ],
   module: {
     rules: [

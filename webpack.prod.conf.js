@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack');
 const merge = require('webpack-merge')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -9,6 +10,7 @@ const base = require('./webpack.base.conf.js')
 module.exports = merge(base, {
   mode: 'production',
   optimization: {
+    nodeEnv: 'production',
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
@@ -19,6 +21,12 @@ module.exports = merge(base, {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify({
+        'NODE_ENV': 'development',
+        'BASE_URL': 'http://www.baidu.com'
+      })
+    }),
     new CleanWebpackPlugin(
       ['dist'],
       {

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { notification } from 'antd'
 
 const request = axios.create({
-  baseURL: 'https://some-domain.com/api/',
+  baseURL: process.env.BASE_URL,
   headers: { 'X-Requested-With': 'XMLHttpRequest' }
 })
 
@@ -17,9 +17,10 @@ request.interceptors.request.use(
       config.params = config.params || {}
       config.params.__sid = token
     }
+    return config
   },
   err => {
-    notification.error({ message: '请求异常!' })
+    notification.error({ message: '请求异常！' })
     return Promise.reject(err)
   }
 )
@@ -30,7 +31,7 @@ request.interceptors.response.use(
     return config
   },
   err => {
-    notification.error({ message: '请求异常!' })
+    notification.error({ message: `请求异常！ ${err.response.status} ${err.response.statusText}` })
     return Promise.reject(err)
   }
 )

@@ -52,3 +52,5 @@ CSS Modules 是对现有的 CSS 做减法。为了追求简单可控，作者建
 
 # 参考资料
 https://github.com/brickspert/blog/issues/1#intro
+
+部署时参考https://www.jianshu.com/p/09d6440e625f
