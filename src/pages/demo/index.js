@@ -2,14 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Input, Button, List } from 'antd'
 import DemoAction from '../../actions/demoAction'
+import DemoService from '../../services/demoService'
+import Service from '../../utils/service'
 import styles from './index.css'
 
 class Demo extends React.Component {
+  @Service(DemoService) static demoService
+
   constructor() {
     super()
     this.state = {
       inputText: ''
     }
+  }
+  componentDidMount() {
+    this.demoService.test()
   }
   onChange(e) {
     this.setState({
@@ -51,7 +58,11 @@ class Demo extends React.Component {
             className={styles.list}
             bordered
             dataSource={this.props.textList}
-            renderItem={item => (<List.Item><div className={styles.listItem}>{item}</div></List.Item>)}
+            renderItem={item => (
+              <List.Item>
+                <div className={styles.listItem}>{item}</div>
+              </List.Item>
+            )}
           />
         </div>
       </div>

@@ -1,5 +1,5 @@
 # 简介
-reactseed是一个基于react、redux、react-route、webpack、eslint、css-module、postcss、autoprefixer的脚手架工程
+reactseed是一个基于react16、redux、react-route、webpack4、eslint、css-module、postcss、autoprefixer的脚手架工程
 
 # CSS Modules 使用技巧
 CSS Modules 是对现有的 CSS 做减法。为了追求简单可控，作者建议遵循如下原则：

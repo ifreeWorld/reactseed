@@ -1,4 +1,4 @@
 import { IconFont } from './iconfont'
-export {
-  IconFont
-}
+import { request, getCookie } from './httpUtil'
+
+export { IconFont, request, getCookie }
