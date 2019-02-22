@@ -2,11 +2,12 @@ const path = require('path')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const base = require('./webpack.base.conf.js')
+const config = require('./config/dev.env.js')
 
-module.exports = merge(base, {
+const webpackConfig = merge(base, {
   mode: 'development',
   entry: {
-    mock: path.resolve(__dirname, 'mock/index.js'),
+    // mock: path.resolve(__dirname, 'mock/index.js'),
     main: path.resolve(__dirname, 'src/main.js')
   },
   // sourcemap
@@ -21,7 +22,8 @@ module.exports = merge(base, {
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'http://mock.bbfe.group/mock/5c6f62d72414ac6f106f9941/market',
+        target: 'https://www.easy-mock.com/mock/5c6f5ee7f5c55f016b1d7652/market', // 外网easymock
+        // target: 'http://mock.bbfe.group/mock/5c6f62d72414ac6f106f9941/market', // 内网easymock
         pathRewrite: { '^/api': '' },
         changeOrigin: true
       }
@@ -93,3 +95,9 @@ module.exports = merge(base, {
     ]
   }
 })
+
+// 增加mockjs配置
+if (config.mock) {
+  webpackConfig.entry.mock = path.resolve(__dirname, 'mock/index.js')
+}
+module.exports = webpackConfig
