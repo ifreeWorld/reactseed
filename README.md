@@ -1,34 +1,34 @@
-[简介](#简介)
-[react redux react-redux redux-thunk redux-logger redux中间件 redux-devtools-extension react-hot-loader](#react-redux-react-redux-redux-thunk-redux-logger-redux中间件-redux-devtools-extension-react-hot-loader)
-[react-router的刷新404坑](#react-router的刷新404坑)
-[antd按需加载](#antd按需加载)
-[babel env react 类属性 装饰器 runtime支撑await、async新特性](#babel-env-react-类属性-装饰器-runtime支撑awaitasync新特性)
-[装饰器实现类似spring注入service](#装饰器实现类似spring注入service)[postcss css-module](#postcss-css-module)
-[axios](#axios)
-[eslint stylelint](#eslint-stylelint)
-[webpack4 splitChunk代码分离](#webpack4-splitchunk代码分离)
-[webpack4 bundle太大怎么处理，用webpack-bundle-analyzer分析，mockjs移出生产环境经验](#webpack4-bundle太大怎么处理用webpack-bundle-analyzer分析mockjs移出生产环境经验)
-[webpack4 提取css插件 mini-css-extract-plugin](#webpack4-提取css插件-mini-css-extract-plugin)
-[webpack4 css优化压缩插件 optimize-css-assets-webpack-plugin](#webpack4-css优化压缩插件-optimize-css-assets-webpack-plugin)[webpack4 js优化压缩插件 uglifyjs-webpack-plugin](#webpack4-js优化压缩插件-uglifyjs-webpack-plugin)
-[CSS Modules 使用技巧](#css-modules-使用技巧)
-[参考资料](#参考资料)
+ - [简介](#简介)
+ - [react redux react-redux redux-thunk redux-logger redux中间件 redux-devtools-extension react-hot-loader](#react-redux-react-redux-redux-thunk-redux-logger-redux中间件-redux-devtools-extension-react-hot-loader)
+ - [react-router的刷新404坑](#react-router的刷新404坑)
+ - [antd按需加载](#antd按需加载)
+ - [babel env react 类属性 装饰器 runtime支撑await、async新特性](#babel-env-react-类属性-装饰器-runtime支撑awaitasync新特性)
+ - [装饰器实现类似spring注入service](#装饰器实现类似spring注入service) - [postcss css-module](#postcss-css-module)
+ - [axios](#axios)
+ - [eslint stylelint](#eslint-stylelint)
+ - [webpack4 splitChunk代码分离](#webpack4-splitchunk代码分离)
+ - [webpack4 bundle太大怎么处理，用webpack-bundle-analyzer分析，mockjs移出生产环境经验](#webpack4-bundle太大怎么处理用webpack-bundle-analyzer分析mockjs移出生产环境经验)
+ - [webpack4 提取css插件 mini-css-extract-plugin](#webpack4-提取css插件-mini-css-extract-plugin)
+ - [webpack4 css优化压缩插件 optimize-css-assets-webpack-plugin](#webpack4-css优化压缩插件-optimize-css-assets-webpack-plugin)[webpack4 js优化压缩插件 uglifyjs-webpack-plugin](#webpack4-js优化压缩插件-uglifyjs-webpack-plugin)
+ - [CSS Modules 使用技巧](#css-modules-使用技巧)
+ - [参考资料](#参考资料)
 
-# 1. 简介
+# 简介
 reactseed是一个基于react16、redux、react-route、webpack4、eslint、css-module、postcss、autoprefixer的脚手架工程
-# 2. react redux react-redux redux-thunk redux-logger redux中间件 redux-devtools-extension react-hot-loader
-# 3. react-router的刷新404坑
-# 4. antd按需加载
-# 5. babel env react 类属性 装饰器 runtime支撑await、async新特性
-# 6. 装饰器实现类似spring注入service
-# 7. postcss css-module
-# 8. axios
-# 9. eslint stylelint
-# 10. webpack4 splitChunk代码分离
-# 11. webpack4 bundle太大怎么处理，用webpack-bundle-analyzer分析，mockjs移出生产环境经验
-# 12. webpack4 提取css插件 mini-css-extract-plugin
-# 13. webpack4 css优化压缩插件 optimize-css-assets-webpack-plugin
-# 14. webpack4 js优化压缩插件 uglifyjs-webpack-plugin
-# 15. CSS Modules 使用技巧
+# react redux react-redux redux-thunk redux-logger redux中间件 redux-devtools-extension react-hot-loader
+# react-router的刷新404坑
+# antd按需加载
+# babel env react 类属性 装饰器 runtime支撑await、async新特性
+# 装饰器实现类似spring注入service
+# postcss css-module
+# axios
+# eslint stylelint
+# webpack4 splitChunk代码分离
+# webpack4 bundle太大怎么处理，用webpack-bundle-analyzer分析，mockjs移出生产环境经验
+# webpack4 提取css插件 mini-css-extract-plugin
+# webpack4 css优化压缩插件 optimize-css-assets-webpack-plugin
+# webpack4 js优化压缩插件 uglifyjs-webpack-plugin
+# CSS Modules 使用技巧
 CSS Modules 是对现有的 CSS 做减法。为了追求简单可控，作者建议遵循如下原则：
 * 不使用选择器，只使用 class 名来定义样式
 * 不层叠多个 class，只使用一个 class 把所有样式定义好
@@ -77,7 +77,7 @@ CSS Modules 是对现有的 CSS 做减法。为了追求简单可控，作者建
       color: #1890ff;
     }
 
-# 16. 参考资料
+# 参考资料
 https://github.com/brickspert/blog/issues/1#intro
 
 部署时参考https://www.jianshu.com/p/09d6440e625f
