@@ -3,13 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, 'src/main.js')
-  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
-    publicPath: './'
+    publicPath: '/'
   },
   optimization: {
     splitChunks: {

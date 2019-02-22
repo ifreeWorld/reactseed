@@ -6,12 +6,7 @@ export default class DemoService {
       /* eslint-disable */
       console.log(getState().demo.textList)
       const res = await request.get('/test', { params: { inputText } })
-      return dispatch(DemoAction.addItem(res.data))
-      // return request.get('/test', { params: { inputText } })
-      //   .then(
-      //     res => {
-      //       return dispatch(DemoAction.addItem(res.data))
-      //     })
+      return dispatch(DemoAction.addItem(res.data.result))
     }
   }
 }

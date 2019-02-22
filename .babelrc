@@ -10,11 +10,13 @@
         "style": "css" // `style: true` 会加载 less 文件
       }
     ],
+    // 集成react-hot-loader
+    ["react-hot-loader/babel"],
     // 集成await async等ES6、7、8的新特性
     ["@babel/plugin-transform-runtime"],
     // 集成装饰器
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    // 集成class中的属性 ES7 有一个静态属性的提案， 目前 Babel 转码器支持 https://blog.csdn.net/qq_30100043/article/details/53542966 
-    ["@babel/plugin-proposal-class-properties", { "loose" : true }]
+    // 集成class中的属性 ES7 有一个静态属性的提案， 目前 Babel 转码器支持 https://blog.csdn.net/qq_30100043/article/details/53542966
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
   ]
 }

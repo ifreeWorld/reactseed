@@ -28,7 +28,7 @@ request.interceptors.request.use(
 // 响应拦截器
 request.interceptors.response.use(
   config => {
-    return config
+    return config.data
   },
   err => {
     notification.error({ message: `请求异常！ ${err.response.status} ${err.response.statusText}` })

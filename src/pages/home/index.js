@@ -7,6 +7,7 @@ import {
   Redirect,
   withRouter
 } from 'react-router-dom'
+import { hot } from 'react-hot-loader/root'
 import { Layout, Menu, Icon } from 'antd'
 import Demo from '../demo'
 import ErrorPage from '../errorPage'
@@ -127,4 +128,4 @@ class Home extends React.Component {
     )
   }
 }
-export default withRouter(Home)
+export default hot(withRouter(Home))

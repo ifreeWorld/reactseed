@@ -5,10 +5,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const base = require('./webpack.base.conf.js')
 
 module.exports = merge(base, {
   mode: 'production',
+  entry: {
+    main: path.resolve(__dirname, 'src/main.js')
+  },
+  devtool: 'source-map',
   optimization: {
     nodeEnv: 'production',
     minimizer: [
@@ -17,7 +22,8 @@ module.exports = merge(base, {
         parallel: true,
         sourceMap: true // set to true if you want JS source maps
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({}),
+      new BundleAnalyzerPlugin()
     ]
   },
   plugins: [

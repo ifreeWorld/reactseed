@@ -1,11 +1,16 @@
-const merge = require('webpack-merge');
-const webpack = require('webpack');
-const base = require('./webpack.base.conf.js');
+const path = require('path')
+const merge = require('webpack-merge')
+const webpack = require('webpack')
+const base = require('./webpack.base.conf.js')
 
 module.exports = merge(base, {
   mode: 'development',
+  entry: {
+    mock: path.resolve(__dirname, 'mock/index.js'),
+    main: path.resolve(__dirname, 'src/main.js')
+  },
   // sourcemap
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   // 模块热替换
   devServer: {
     contentBase: '/',
@@ -16,19 +21,23 @@ module.exports = merge(base, {
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:9002',
+        target: 'http://mock.bbfe.group/mock/5c6f62d72414ac6f106f9941/market',
         pathRewrite: { '^/api': '' },
         changeOrigin: true
       }
     }
+  },
+  resolve: {
+    // 别名
+    alias: {}
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify({
-        'NODE_ENV': 'development',
-        'BASE_URL': 'http://localhost:9000/api'
+        NODE_ENV: 'development',
+        BASE_URL: 'http://localhost:9000/api'
       })
     })
   ],
@@ -83,4 +92,4 @@ module.exports = merge(base, {
       }
     ]
   }
-});
+})
