@@ -29,7 +29,7 @@ const webpackConfig = merge(base, {
     new webpack.DefinePlugin({
       'process.env': JSON.stringify({
         NODE_ENV: 'development',
-        BASE_URL: 'http://www.baidu.com'
+        BASE_URL: 'https://www.easy-mock.com/mock/5c6f5ee7f5c55f016b1d7652/market'
       })
     }),
     new CleanWebpackPlugin(['dist'], {
