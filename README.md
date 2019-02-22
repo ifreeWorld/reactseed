@@ -29,9 +29,6 @@ reactseed是一个基于react16、redux、react-route、webpack4、eslint、css-
 # 13. webpack4 css优化压缩插件 optimize-css-assets-webpack-plugin
 # 14. webpack4 js优化压缩插件 uglifyjs-webpack-plugin
 # 15. CSS Modules 使用技巧
-# 16. 参考资料
-
-# 15. 参考资料
 CSS Modules 是对现有的 CSS 做减法。为了追求简单可控，作者建议遵循如下原则：
 * 不使用选择器，只使用 class 名来定义样式
 * 不层叠多个 class，只使用一个 class 把所有样式定义好
