@@ -6,11 +6,5 @@ export default class DemoAction {
       type: ADD_ITEM,
       payload
     }
-    // return (dispatch) => {
-    //   return fetchSecretSauce().then(
-    //     sauce => dispatch(makeASandwich(forPerson, sauce)),
-    //     error => dispatch(apologize('The Sandwich Shop', forPerson, error))
-    //   );
-    // };
   }
 }

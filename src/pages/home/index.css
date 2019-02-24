@@ -4,6 +4,12 @@
   white-space: nowrap;
 }
 
+:global(.container) {
+  padding: 24px;
+  background: #fff;
+  min-height: 600px;
+}
+
 .logo {
   height: 60px;
   line-height: 60px;

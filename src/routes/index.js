@@ -1,42 +1,52 @@
 const routes = [
   {
-    name: '菜单一',
-    link: '/link1',
-    icon: 'pie-chart'
-  },
-  {
-    name: '菜单二',
-    link: '/link2',
-    icon: 'desktop'
-  },
-  {
-    name: '菜单三',
-    link: '/link3',
-    icon: 'user'
-  },
-  {
-    name: '菜单四',
-    link: '/link4',
-    icon: 'team',
+    name: '销售页',
+    link: '/sale',
+    icon: 'sale',
     children: [
       {
-        name: '菜单四-1',
-        link: '/link4/1'
+        name: '销售分析',
+        link: '/sale/analysis'
       },
       {
-        name: '菜单四-2',
-        link: '/link4/2'
-      },
-      {
-        name: '菜单四-3',
-        link: '/link4/3'
+        name: '销售管理',
+        link: '/sale/manage'
       }
     ]
   },
   {
-    name: '菜单五',
-    link: '/link5',
-    icon: 'file'
+    name: '采购页',
+    link: '/shop',
+    icon: 'shop',
+    children: [
+      {
+        name: '采购分析',
+        link: '/shop/analysis'
+      },
+      {
+        name: '采购管理',
+        link: '/shop/manage'
+      }
+    ]
+  },
+  {
+    name: 'demo页',
+    link: '/demo',
+    icon: 'team',
+    children: [
+      {
+        name: 'demo页-1',
+        link: '/demo/1'
+      },
+      {
+        name: 'demo页-2',
+        link: '/demo/2'
+      },
+      {
+        name: 'demo页-3',
+        link: '/demo/3'
+      }
+    ]
   }
 ]
 export default routes;

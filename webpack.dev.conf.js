@@ -22,7 +22,8 @@ const webpackConfig = merge(base, {
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'https://www.easy-mock.com/mock/5c6f5ee7f5c55f016b1d7652/market', // 外网easymock
+        target: 'http://localhost:3000', // 本地NodeJS接口
+        // target: 'https://www.easy-mock.com/mock/5c6f5ee7f5c55f016b1d7652/market', // 外网easymock
         // target: 'http://mock.bbfe.group/mock/5c6f62d72414ac6f106f9941/market', // 内网easymock
         pathRewrite: { '^/api': '' },
         changeOrigin: true
@@ -39,7 +40,7 @@ const webpackConfig = merge(base, {
     new webpack.DefinePlugin({
       'process.env': JSON.stringify({
         NODE_ENV: 'development',
-        BASE_URL: 'http://localhost:9000/api'
+        BASE_URL: 'http://localhost:9000/api/market'
       })
     })
   ],

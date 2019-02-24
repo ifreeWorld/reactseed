@@ -1,3 +1,4 @@
 import { combineReducers } from 'redux'
 import demo from './demo'
-export default combineReducers({ demo })
+import saleManage from './saleManage'
+export default combineReducers({ demo, saleManage })

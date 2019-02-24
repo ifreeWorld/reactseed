@@ -12,6 +12,8 @@ import { Layout, Menu, Icon } from 'antd'
 import Demo from '../demo'
 import ErrorPage from '../errorPage'
 import routes from '../../routes'
+import saleAnalysis from '../saleAnalysis'
+import saleManage from '../saleManage'
 import { IconFont } from '../../utils'
 import styles from './index.css'
 
@@ -39,7 +41,7 @@ class Home extends React.Component {
             key={item.link}
             title={
               <span>
-                <Icon type={item.icon} />
+                <IconFont type={item.icon} />
                 <span>{item.name}</span>
               </span>
             }
@@ -49,7 +51,7 @@ class Home extends React.Component {
         ) : (
           <Menu.Item key={item.link}>
             <NavLink to={item.link}>
-              {item.icon ? <Icon type={item.icon} /> : ''}
+              {item.icon ? <IconFont type={item.icon} /> : ''}
               <span>{item.name}</span>
             </NavLink>
           </Menu.Item>
@@ -87,15 +89,15 @@ class Home extends React.Component {
           </Link>
           <Menu
             theme="dark"
-            defaultSelectedKeys={['/link1']}
+            defaultSelectedKeys={['/sale/analysis']}
             mode="inline"
             selectedKeys={[
               this.props.history.location.pathname !== '/'
                 ? this.props.history.location.pathname
-                : '/link1'
+                : '/sale/analysis'
             ]}
             defaultOpenKeys={[
-              combineSnippets.length > 0 ? combineSnippets[0] : ''
+              combineSnippets.length > 0 ? combineSnippets[0] : '/sale'
             ]}
           >
             {this.renderMenu(routes)}
@@ -111,12 +113,12 @@ class Home extends React.Component {
           </Header>
           <Content style={{ margin: '16px' }}>
             <Switch>
-              <Redirect exact from="/" to="/link1" />
-              <Route exact path="/link1" component={Demo} />
-              <Route exact path="/link2" component={Demo} />
-              <Route exact path="/link3" component={Demo} />
-              <Route path="/link4/:id" component={Demo} />
-              <Route exact path="/link5" component={Demo} />
+              <Redirect exact from="/" to="/sale/analysis" />
+              <Route exact path="/sale/analysis" component={saleAnalysis} />
+              <Route exact path="/sale/manage" component={saleManage} />
+              <Route exact path="/shop/analysis" component={saleAnalysis} />
+              <Route exact path="/shop/manage" component={saleManage} />
+              <Route path="/demo/:id" component={Demo} />
               <Route component={ErrorPage} />
             </Switch>
           </Content>
