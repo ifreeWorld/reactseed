@@ -2,7 +2,7 @@ const routes = [
   {
     name: '销售页',
     link: '/sale',
-    icon: 'sale',
+    icon: 'icon-sale',
     children: [
       {
         name: '销售分析',
@@ -17,7 +17,7 @@ const routes = [
   {
     name: '采购页',
     link: '/shop',
-    icon: 'shop',
+    icon: 'icon-shop',
     children: [
       {
         name: '采购分析',

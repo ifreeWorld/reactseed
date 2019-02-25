@@ -1,14 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import {
-  Form,
-  Input,
-  DatePicker,
-  TimePicker,
-  Select,
-  Cascader,
-  InputNumber
-} from 'antd'
+import { Form, DatePicker, InputNumber, Modal } from 'antd'
+import moment from 'moment'
 
 const formItemLayout = {
   labelCol: {
@@ -21,17 +13,74 @@ const formItemLayout = {
 
 class SaleForm extends React.Component {
   render() {
+    const {
+      visible,
+      confirmLoading,
+      onCancel,
+      onOk,
+      form,
+      title = '',
+      rowData = {},
+      editType = 'new'
+    } = this.props
+    const {
+      date = '',
+      collector = '',
+      cash = '',
+      wechat = '',
+      alipay = '',
+      key = 0
+    } = rowData
+    const { getFieldDecorator } = form
     return (
-      <Form>
-        <Form.Item {...formItemLayout} label="日期">
-          <InputNumber placeholder="请输入现金金额" min={1} />
-        </Form.Item>
-      </Form>
+      <Modal
+        title={title}
+        visible={visible}
+        confirmLoading={confirmLoading}
+        onOk={onOk}
+        onCancel={onCancel}
+      >
+        <Form>
+          <Form.Item {...formItemLayout} label="日期" hasFeedback>
+            {getFieldDecorator('date', {
+              rules: [{ required: true, message: '请选择日期' }],
+              initialValue: date ? moment(date, 'YYYY-MM-DD') : ''
+            })(<DatePicker disabled={editType === 'edit'} />)}
+          </Form.Item>
+          <Form.Item {...formItemLayout} label="收钱吧" hasFeedback>
+            {getFieldDecorator('collector', {
+              rules: [{ required: true, message: '请输入金额' }],
+              initialValue: collector
+            })(<InputNumber min={0} />)}
+          </Form.Item>
+          <Form.Item {...formItemLayout} label="现金" hasFeedback>
+            {getFieldDecorator('cash', {
+              rules: [{ required: true, message: '请输入金额' }],
+              initialValue: cash
+            })(<InputNumber min={0} />)}
+          </Form.Item>
+          <Form.Item {...formItemLayout} label="微信" hasFeedback>
+            {getFieldDecorator('wechat', {
+              rules: [{ required: true, message: '请输入金额' }],
+              initialValue: wechat
+            })(<InputNumber min={0} />)}
+          </Form.Item>
+          <Form.Item {...formItemLayout} label="支付宝" hasFeedback>
+            {getFieldDecorator('alipay', {
+              rules: [{ required: true, message: '请输入金额' }],
+              initialValue: alipay
+            })(<InputNumber min={0} />)}
+          </Form.Item>
+          <Form.Item {...formItemLayout} label="key" hasFeedback style={{ display: 'none' }}>
+            {getFieldDecorator('key', {
+              rules: [{ required: true, message: '请输入key' }],
+              initialValue: key
+            })(<InputNumber min={0} />)}
+          </Form.Item>
+        </Form>
+      </Modal>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {}
-}
-export default connect(mapStateToProps)(SaleForm)
+export default Form.create({ name: 'saleForm' })(SaleForm)

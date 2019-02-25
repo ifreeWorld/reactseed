@@ -1,19 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {
-  Divider,
-  Table
-} from 'antd'
+import { Divider, Table, Modal } from 'antd'
 import Service from '../../utils/service'
 import SaleManageService from '../../services/saleManageService'
+import SaleForm from '../SaleForm'
 import styles from './index.css'
 
+const confirm = Modal.confirm
 const expectTotal = [2000, 4500]
 class SaleTable extends React.Component {
   @Service(SaleManageService) static saleManageService
   constructor() {
     super()
     this.state = {
+      confirmLoading: false,
+      visible: false,
+      rowData: {},
       columns: [
         {
           title: '日期',
@@ -80,19 +82,72 @@ class SaleTable extends React.Component {
     }
   }
   componentDidMount() {
-    this.props.dispatch(this.saleManageService.getSaleTableInfo({}))
+    this.props.dispatch(this.saleManageService.getSaleTableInfo())
   }
-  edit(row) {
+  saveFormRef(formRef) {
+    this.formRef = formRef
   }
-  delete(row) {
+  onOk() {
+    const form = this.formRef.props.form;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+      values.date = values.date.format('YYYY-MM-DD')
+      values.total = values.collector + values.cash + values.wechat + values.alipay
+      this.setState({
+        confirmLoading: true
+      })
+      this.props.dispatch(this.saleManageService.updateSaleTableInfo(values)).then(() => {
+        this.setState({
+          visible: false,
+          confirmLoading: false
+        })
+        form.resetFields();
+      })
+    });
+  }
+  onCancel() {
+    this.setState({
+      visible: false
+    })
+  }
+  edit(rowData) {
+    this.setState({
+      visible: true,
+      rowData
+    })
+  }
+  delete(rowData) {
+    const { key, date } = rowData
+    confirm({
+      title: '警告',
+      content: `你确定要删除${date}这一条数据吗?`,
+      onOk: () => {
+        this.props.dispatch(this.saleManageService.deleteSaleTableInfo({ key }))
+      },
+      onCancel: () => {}
+    })
   }
   render() {
     return (
-      <Table
-        dataSource={this.props.tableList}
-        columns={this.state.columns}
-        // bordered
-      />
+      <div>
+        <Table
+          dataSource={this.props.tableList}
+          columns={this.state.columns}
+          // bordered
+        />
+        <SaleForm
+          wrappedComponentRef={this.saveFormRef.bind(this)}
+          title='编辑'
+          editType='edit'
+          rowData={this.state.rowData}
+          visible={this.state.visible}
+          confirmLoading={this.state.confirmLoading}
+          onCancel={this.onCancel.bind(this)}
+          onOk={this.onOk.bind(this)}
+        />
+      </div>
     )
   }
 }

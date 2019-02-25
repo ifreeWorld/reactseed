@@ -41,7 +41,7 @@ class Home extends React.Component {
             key={item.link}
             title={
               <span>
-                <IconFont type={item.icon} />
+                <IconFont type={item.icon} style={{ fontSize: '15px' }}/>
                 <span>{item.name}</span>
               </span>
             }
@@ -51,7 +51,7 @@ class Home extends React.Component {
         ) : (
           <Menu.Item key={item.link}>
             <NavLink to={item.link}>
-              {item.icon ? <IconFont type={item.icon} /> : ''}
+              {item.icon ? <IconFont type={item.icon} style={{ fontSize: '15px' }}/> : ''}
               <span>{item.name}</span>
             </NavLink>
           </Menu.Item>

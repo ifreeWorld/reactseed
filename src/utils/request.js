@@ -1,16 +1,16 @@
 import axios from 'axios'
 import { notification } from 'antd'
 
-const request = axios.create({
+const instance = axios.create({
   baseURL: process.env.BASE_URL,
   headers: { 'X-Requested-With': 'XMLHttpRequest' }
 })
 
 // 给实例绑定axios.all方法
-request.all = axios.all
+instance.all = axios.all
 
 // 请求拦截器
-request.interceptors.request.use(
+instance.interceptors.request.use(
   config => {
     let token = getCookie('token')
     if (token) {
@@ -26,7 +26,7 @@ request.interceptors.request.use(
 )
 
 // 响应拦截器
-request.interceptors.response.use(
+instance.interceptors.response.use(
   config => {
     return config.data
   },
@@ -43,6 +43,25 @@ const getCookie = name => {
     return arr[2]
   }
   return null
+}
+
+const request = {
+  post: (url, params) => {
+    return instance.post(url, params)
+      .then((res) => {
+        return res
+      }).catch((err) => {
+        return err
+      })
+  },
+  get: (url, params) => {
+    return instance.get(url, { params })
+      .then((res) => {
+        return res
+      }).catch((err) => {
+        return err
+      })
+  }
 }
 
 export { request, getCookie }
