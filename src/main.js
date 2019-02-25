@@ -6,6 +6,7 @@ import { LocaleProvider } from 'antd';
 import store from './store'
 import zhCN from 'antd/lib/locale-provider/zh_CN'
 import Home from './pages/home/index'
+import 'ant-design-pro/dist/ant-design-pro.css'
 
 ReactDom.render(
   <Provider store={store}>
