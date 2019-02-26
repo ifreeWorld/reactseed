@@ -1,0 +1,39 @@
+.tabs {
+  padding-left: 16px;
+  position: relative;
+}
+
+.bar {
+  padding: 0 0 32px 14px;
+  width: 1100px;
+}
+
+.rightMonth {
+  position: absolute;
+  right: 24px;
+  top: 0;
+  height: 55px;
+  line-height: 55px;
+}
+
+.pieTitle {
+  margin-top: 10px;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+.yearCard {
+  position: relative;
+}
+
+.yearSelector {
+  position: absolute;
+  right: 24px;
+  top: 0;
+  height: 55px;
+  line-height: 55px;
+}
+
+:global(.antd-pro-charts-pie-pie.antd-pro-charts-pie-hasLegend .antd-pro-charts-pie-chart) {
+  width: 431.578px !important;
+}

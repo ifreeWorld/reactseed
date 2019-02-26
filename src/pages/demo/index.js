@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { Input, Button, List } from 'antd'
 import DemoService from '../../services/demoService'
 import Service from '../../utils/service'
@@ -64,6 +65,11 @@ class Demo extends React.Component {
       </div>
     )
   }
+}
+
+Demo.propTypes = {
+  match: PropTypes.object,
+  textList: PropTypes.array
 }
 const mapStateToProps = state => {
   return {

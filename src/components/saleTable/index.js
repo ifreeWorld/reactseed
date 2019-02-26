@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { Divider, Table, Modal } from 'antd'
 import Service from '../../utils/service'
 import SaleManageService from '../../services/saleManageService'
@@ -150,6 +151,10 @@ class SaleTable extends React.Component {
       </div>
     )
   }
+}
+
+SaleTable.propTypes = {
+  tableList: PropTypes.array
 }
 
 const mapStateToProps = state => {

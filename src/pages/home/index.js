@@ -7,6 +7,7 @@ import {
   Redirect,
   withRouter
 } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { hot } from 'react-hot-loader/root'
 import { Layout, Menu, Icon } from 'antd'
 import Demo from '../demo'
@@ -129,5 +130,10 @@ class Home extends React.Component {
       </Layout>
     )
   }
+}
+
+Home.propTypes = {
+  total: PropTypes.object,
+  average: PropTypes.object
 }
 export default hot(withRouter(Home))

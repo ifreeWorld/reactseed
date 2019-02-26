@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { Button, DatePicker } from 'antd'
 import Service from '../../utils/service'
 import SaleManageService from '../../services/saleManageService'
@@ -8,7 +9,7 @@ import SaleForm from '../../components/SaleForm'
 import styles from './index.css'
 
 const { RangePicker } = DatePicker
-class saleManage extends React.Component {
+class SaleManage extends React.Component {
   @Service(SaleManageService) static saleManageService
   constructor() {
     super()
@@ -33,11 +34,6 @@ class saleManage extends React.Component {
     )
   }
   handleReset() {
-    // this.setState({
-    //   filterDate: [],
-    //   filterStartDate: '',
-    //   filterEndDate: ''
-    // })
     this.props.dispatch(
       this.saleManageService.updateSaleTableFilter({
         filterDate: [],
@@ -50,11 +46,6 @@ class saleManage extends React.Component {
   onChange(dates) {
     const filterStartDate = dates[0] ? dates[0].format('YYYY-MM-DD') : ''
     const filterEndDate = dates[1] ? dates[1].format('YYYY-MM-DD') : ''
-    // this.setState({
-    //   filterDate: dates,
-    //   filterStartDate,
-    //   filterEndDate
-    // })
     this.props.dispatch(
       this.saleManageService.updateSaleTableFilter({
         filterDate: dates,
@@ -139,9 +130,12 @@ class saleManage extends React.Component {
     )
   }
 }
+SaleManage.propTypes = {
+  filter: PropTypes.object
+}
 const mapStateToProps = state => {
   return {
     filter: state.saleManage.filter || {}
   }
 }
-export default connect(mapStateToProps)(saleManage)
+export default connect(mapStateToProps)(SaleManage)

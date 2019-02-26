@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Form, DatePicker, InputNumber, Modal } from 'antd'
 import moment from 'moment'
 
@@ -81,6 +82,16 @@ class SaleForm extends React.Component {
       </Modal>
     )
   }
+}
+SaleForm.propTypes = {
+  visible: PropTypes.bool,
+  confirmLoading: PropTypes.bool,
+  onCancel: PropTypes.func,
+  onOk: PropTypes.func,
+  form: PropTypes.object,
+  title: PropTypes.string,
+  rowData: PropTypes.object,
+  editType: PropTypes.string
 }
 
 export default Form.create({ name: 'saleForm' })(SaleForm)
