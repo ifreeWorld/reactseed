@@ -80,4 +80,14 @@ CSS Modules 是对现有的 CSS 做减法。为了追求简单可控，作者建
 # 参考资料
 https://github.com/brickspert/blog/issues/1#intro
 
-部署时参考https://www.jianshu.com/p/09d6440e625f
+部署参考:
+https://www.jianshu.com/p/09d6440e625f
+pm2:
+https://www.cnblogs.com/chyingp/p/pm2-documentation.html
+github:
+https://www.cnblogs.com/zhuyc110/p/6823023.html
+mysql:
+https://www.cnblogs.com/silentdoer/articles/7258232.html
+
+部署问题：
+服务器上npm run build提示内存溢出，可以修改package.json中，改为node --max_old_space_size=512尝试下在服务器打包，如果还是不行，就只能本地打包部署到服务器上去
