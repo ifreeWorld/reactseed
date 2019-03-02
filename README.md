@@ -47,7 +47,7 @@ npm i webpack webpack-cli webpack-merge --save-dev
 
 # Babel
 
-- [**babel-loader**](https://github.com/babel/babel-loader)
+- [**babel-loader**](https://github.com/babel/babel-loader?_blank)
 - [**@babel/core**](https://github.com/babel/babel/tree/master/packages/babel-core)
 - [**@babel/preset-react**](https://github.com/babel/babel/tree/master/packages/babel-preset-react) 用于解析 JSX
 - [**@babel/preset-env**](https://github.com/babel/babel/tree/master/packages/babel-preset-env) 用于解析 ES 新特性（ES6 ES7 ES8 等）
