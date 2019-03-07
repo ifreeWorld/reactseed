@@ -43,7 +43,7 @@ npm init
 npm i webpack webpack-cli webpack-merge --save-dev
 ```
 
-参考[**webpack 文档**](https://webpack.js.org/get-started/)编写基础的配置文件
+参考[**webpack 文档**](https://webpack.js.org/get-started/)编写基础的配置文件 
 
 # Babel
 
