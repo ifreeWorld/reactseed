@@ -7,9 +7,9 @@ import reducer from '../reducers'
 import { request } from '../utils'
 
 const logger = createLogger({
-  collapsed: true,
-  duration: true,
-  timestamp: true
+  collapsed: true, // 折叠
+  duration: true, // 打印action耗时
+  timestamp: true // 打印action发出的时间戳
 })
 const store = createStore(
   reducer,

@@ -47,3 +47,8 @@
 .trigger:hover {
   color: #1890ff;
 }
+
+.loading {
+  color: #000;
+  font-size: 30px;
+}

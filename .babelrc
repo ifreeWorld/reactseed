@@ -25,6 +25,8 @@
     ["react-hot-loader/babel"],
     // 集成await async等ES6、7、8的新特性
     ["@babel/plugin-transform-runtime"],
+    // 集成动态引入
+    ["@babel/plugin-syntax-dynamic-import"],
     // 集成装饰器
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     // 集成class中的属性 ES7 有一个静态属性的提案， 目前 Babel 转码器支持 https://blog.csdn.net/qq_30100043/article/details/53542966

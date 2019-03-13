@@ -31,6 +31,10 @@ instance.interceptors.response.use(
     return config.data
   },
   err => {
+    // 401
+    if (err.response.status === 401) {
+      // cookie中的token失效处理，跳转登陆
+    }
     notification.error({ message: `请求异常！ ${err.response.status} ${err.response.statusText}` })
     return Promise.reject(err)
   }
