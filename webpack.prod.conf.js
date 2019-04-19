@@ -29,7 +29,7 @@ const webpackConfig = merge(base, {
     new webpack.DefinePlugin({
       'process.env': JSON.stringify({
         NODE_ENV: 'development',
-        BASE_URL: 'http://www.freeworldl.club/market'
+        BASE_URL: '//www.freeworldl.club/market'
       })
     }),
     new CleanWebpackPlugin(['dist'], {
