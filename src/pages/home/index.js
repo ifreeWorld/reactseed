@@ -15,6 +15,7 @@ import ErrorPage from '../errorPage'
 import routes from '../../routes'
 import saleAnalysis from '../saleAnalysis'
 import saleManage from '../saleManage'
+import testcase from '../testcase'
 import { IconFont } from '../../utils'
 import styles from './index.css'
 
@@ -117,6 +118,7 @@ class Home extends React.Component {
               <Redirect exact from="/" to="/sale/analysis" />
               <Route exact path="/sale/analysis" component={saleAnalysis} />
               <Route exact path="/sale/manage" component={saleManage} />
+              <Route exact path="/sale/testcase" component={testcase} />
               <Route exact path="/shop/analysis" component={saleAnalysis} />
               <Route exact path="/shop/manage" component={saleManage} />
               <Route path="/demo/:id" component={Demo} />

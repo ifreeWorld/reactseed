@@ -11,6 +11,10 @@ const routes = [
       {
         name: '销售管理',
         link: '/sale/manage'
+      },
+      {
+        name: '测试',
+        link: '/sale/testcase'
       }
     ]
   }

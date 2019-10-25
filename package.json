@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --color --open --inline --progress --config webpack.dev.conf.js",
     "build": "webpack --config webpack.prod.conf.js --profile --json > stats.json ",
+    "server": "node server/app.js",
     "lint": "eslint --ext .js,.jsx ./",
     "stylelint": "stylelint src/**/*.css",
     "stylelint:fix": "stylelint src/**/*.css --fix",
@@ -28,6 +29,7 @@
     "@babel/runtime": "^7.3.1",
     "ant-design-pro": "^2.2.1",
     "antd": "^3.13.6",
+    "lodash": "^4.17.15",
     "qs": "^6.6.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
@@ -36,6 +38,8 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
     "webpack": "^4.29.3"
   },
   "devDependencies": {

@@ -43,5 +43,6 @@ module.exports = {
     'space-before-function-paren': [0, 'always'],
     // react proptype不检查
     'react/prop-types': 0,
+    'no-console': 'off'
   }
 }
